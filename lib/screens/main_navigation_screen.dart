@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../services/local_notification_service.dart';
 import '../theme/app_theme.dart';
 import 'tabs/home_tab.dart';
 import 'tabs/matches_tab.dart';
@@ -27,10 +26,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   void initState() {
     super.initState();
     _currentIndex = widget.initialIndex;
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      LocalNotificationService.instance.requestPermission();
-    });
   }
 
   @override
@@ -64,17 +59,17 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard_outlined),
               activeIcon: Icon(Icons.dashboard_rounded),
-              label: 'Главная',
+              label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.sports_soccer_outlined),
               activeIcon: Icon(Icons.sports_soccer_rounded),
-              label: 'Матчи',
+              label: 'Matches',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.emoji_events_outlined),
               activeIcon: Icon(Icons.emoji_events_rounded),
-              label: 'Мой прогресс',
+              label: 'My Progress',
             ),
           ],
         ),

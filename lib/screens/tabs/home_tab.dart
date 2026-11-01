@@ -32,48 +32,48 @@ class _HomeTabState extends State<HomeTab> {
 
   int _selectedQuizAnswer = -1;
   bool _quizSubmitted = false;
-  String _activeFilter = 'Все';
+  String _activeFilter = 'All';
 
   final List<ArticleItem> _articles = const [
     ArticleItem(
       id: 'bw_art_1',
-      category: 'Футбол',
-      title: 'Быстрый переход из обороны в атаку: вертикальный футбол',
-      summary: 'Разбор передач в свободные зоны и открываний крайних полузащитников.',
-      content: 'Вертикальный футбол основывается на минимизации числа поперечных передач. Команда стремится доставить мяч в финальную треть поля за 2-3 точных паса, используя забегания инсайдов за спину защитникам.',
-      readTime: '3 мин',
+      category: 'Football',
+      title: 'Transition from Defense to Attack: Vertical Football',
+      summary: 'Analysis of passing into open channels and wingers breaking lines.',
+      content: 'Vertical football focuses on minimizing lateral passes. The team aims to deliver the ball to the final third in 2-3 precise passes, utilizing runs into space behind defensive lines.',
+      readTime: '3 min',
     ),
     ArticleItem(
       id: 'bw_art_2',
-      category: 'Теннис',
-      title: 'Топ-спин и угол атаки: физика вращения мяча',
-      summary: 'Как современная техника ударов с задней линии изменила грунтовые турниры.',
-      content: 'При ударе с верхним вращением мяч совершает до 3000 оборотов в минуту. Эффект Магнуса прижимает мяч к корту, позволяя наносить удары на огромной скорости без риска аута.',
-      readTime: '4 мин',
+      category: 'Tennis',
+      title: 'Topspin and Attack Angle: Ball Rotation Physics',
+      summary: 'How modern baseline groundstrokes transformed clay court tournaments.',
+      content: 'During heavy topspin strokes, the ball rotates up to 3,000 RPM. The Magnus effect pulls the ball downward, allowing explosive velocity without hitting out.',
+      readTime: '4 min',
     ),
     ArticleItem(
       id: 'bw_art_3',
-      category: 'Хоккей',
-      title: 'Борьба у бортов и контроль нейтральной зоны',
-      summary: 'Почему контроль нейтральной зоны приносит победы в плей-офф.',
-      content: 'Большинство опасных атак начинается с выигранного единоборства у борта. Силовая борьба и грамотная подстраховка защитника на синей линии создают преимущество вторым темпом.',
-      readTime: '2 мин',
+      category: 'Hockey',
+      title: 'Board Battles and Neutral Zone Control',
+      summary: 'Why controlling the neutral zone wins playoff series.',
+      content: 'Most high-danger scoring chances begin with winning battles along the boards. Physical play and strong blue line defensive positioning generate quick counterattacks.',
+      readTime: '2 min',
     ),
     ArticleItem(
       id: 'bw_art_4',
-      category: 'Баскетбол',
-      title: 'Пик-н-ролл и изоляция: эволюция командных комбинаций',
-      summary: 'Как современные защитники создают численное преимущество при заслонах.',
-      content: 'Современный баскетбол требует от центрового высокой подвижности. Растягивание обороны бросающими пятыми номерами делает классический пик-н-ролл максимально вариативным.',
-      readTime: '4 мин',
+      category: 'Basketball',
+      title: 'Pick-and-Roll and Isolation: Playmaking Evolution',
+      summary: 'How modern point guards create numbers advantages off screens.',
+      content: 'Modern basketball requires mobile big men. Stretching the floor with perimeter shooting 5s makes the classic pick-and-roll versatile and difficult to defend.',
+      readTime: '4 min',
     ),
   ];
 
   final List<String> _facts = [
-    'Футбольные бутсы для игры на мокром газоне имеют специальные конические металлические шипы.',
-    'Теннисный мяч меняют каждые 9 геймов на профессиональных турнирах Большого шлема.',
-    'Шлем хоккеиста выдерживает прямое попадание шайбы на скорости свыше 160 км/ч.',
-    'Баскетбольное кольцо находится на высоте ровно 3,05 метра во всех мировых лигах.',
+    'Football boots for wet pitches feature specialized conical aluminum studs for traction.',
+    'Tennis balls are replaced every 9 games in professional Grand Slam tournaments.',
+    'A hockey helmet withstands direct puck impacts at speeds surpassing 160 km/h.',
+    'The basketball hoop is positioned at exactly 3.05 meters in all official world leagues.',
   ];
 
   void _openArticleDetails(ArticleItem article) {
@@ -152,7 +152,7 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Время чтения: ${article.readTime}',
+                      'Reading time: ${article.readTime}',
                       style: const TextStyle(fontSize: 12, color: AppTheme.textSecondary),
                     ),
                     const SizedBox(height: 16),
@@ -179,7 +179,7 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                         onPressed: () => Navigator.pop(ctx),
                         child: const Text(
-                          'Закрыть',
+                          'Close',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -201,7 +201,7 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredArticles = _activeFilter == 'Все'
+    final filteredArticles = _activeFilter == 'All'
         ? _articles
         : _articles.where((a) => a.category.contains(_activeFilter)).toList();
 
@@ -218,7 +218,7 @@ class _HomeTabState extends State<HomeTab> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Главная',
+                    'Home',
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -237,7 +237,7 @@ class _HomeTabState extends State<HomeTab> {
                         const Icon(Icons.stars_rounded, color: AppTheme.accentYellow, size: 16),
                         const SizedBox(width: 6),
                         Text(
-                          '${_progress.points} баллов',
+                          '${_progress.points} pts',
                           style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
@@ -251,12 +251,12 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: 6),
               const Text(
-                'Спортивные события, статьи и викторина дня',
+                'Sports events, expert insights and trivia of the day',
                 style: TextStyle(fontSize: 14, color: AppTheme.textSecondary),
               ),
               const SizedBox(height: 16),
 
-              // Компактный зелёный баннер с белым заголовком и жёлтым акцентом
+              // Green banner with white header and yellow accent
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(18),
@@ -288,7 +288,7 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                         const SizedBox(width: 10),
                         const Text(
-                          'ВИКТОРИНА ДНЯ',
+                          'QUIZ OF THE DAY',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
@@ -304,7 +304,7 @@ class _HomeTabState extends State<HomeTab> {
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: const Text(
-                            '+30 баллов',
+                            '+30 pts',
                             style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppTheme.onYellow),
                           ),
                         ),
@@ -312,7 +312,7 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     const SizedBox(height: 12),
                     const Text(
-                      'Сколько игроков одной команды одновременно находится на поле в футболе?',
+                      'How many players of one team are on the pitch during a football match?',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -322,9 +322,9 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                     const SizedBox(height: 14),
                     ...[
-                      '10 игроков',
-                      '11 игроков',
-                      '12 игроков',
+                      '10 players',
+                      '11 players',
+                      '12 players',
                     ].asMap().entries.map((entry) {
                       final idx = entry.key;
                       final text = entry.value;
@@ -394,12 +394,12 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: 18),
 
-              // Фильтры по темам: футбол, хоккей, баскетбол, теннис
+              // Filter Chips
               SizedBox(
                 height: 38,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: ['Все', 'Футбол', 'Хоккей', 'Баскетбол', 'Теннис'].map((f) {
+                  children: ['All', 'Football', 'Hockey', 'Basketball', 'Tennis'].map((f) {
                     final isAct = _activeFilter == f;
                     return Padding(
                       padding: const EdgeInsets.only(right: 8),
@@ -431,9 +431,9 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: 18),
 
-              // Спортивные факты
+              // Sports Facts
               const Text(
-                'Спортивный факт дня',
+                'Sports Fact of the Day',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -481,12 +481,12 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: 24),
 
-              // Статьи
+              // Articles
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Статьи и разборы',
+                    'Articles & Analysis',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -494,7 +494,7 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                   ),
                   Text(
-                    '${filteredArticles.length} материалов',
+                    '${filteredArticles.length} articles',
                     style: const TextStyle(fontSize: 13, color: AppTheme.textSecondary),
                   ),
                 ],
@@ -580,7 +580,7 @@ class _HomeTabState extends State<HomeTab> {
                               ),
                               const Spacer(),
                               const Text(
-                                'Читать',
+                                'Read',
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
